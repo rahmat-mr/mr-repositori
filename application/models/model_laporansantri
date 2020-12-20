@@ -1,0 +1,24 @@
+<?php
+
+class Model_laporansantri extends CI_Models
+{
+
+function tampil_laporan(){
+        $hasil = $this->db->query("select * from tbl_siswa order by kode asc");
+        return $hasil;
+    	}
+
+
+function laporansantri()
+		{
+				$data = array(
+					'nama'          => $this->input->post('nama', TRUE),
+					'iuran'          => $this->input->post('iuran', TRUE),				
+					);
+			$this->db->where('kode',$this->input->post('kode'));
+        $this->db->update('tbl_siswa',$data);
+		}
+
+
+}
+?>
